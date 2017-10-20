@@ -30,12 +30,7 @@ export class App extends React.Component {
         <h1 className="h1">React Alice Carousel</h1>
         <AliceCarousel
           duration={400}
-          autoPlay={false}
-          playButtonEnabled={true}
           responsive={responsive}
-          autoPlayInterval={100}
-          autoPlayDirection="rtl"
-          autoPlayActionDisabled={true}
           onSlideChange={this.onSlideChange}
           onSlideChanged={this.onSlideChanged}
         >

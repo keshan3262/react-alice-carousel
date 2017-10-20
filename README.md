@@ -1,4 +1,5 @@
 # React Alice Carousel
+## React 16 Example
 
 ![demo gif](https://github.com/maxmarinich/react-alice-carousel/raw/master/source/i/react-alice-carousel.gif)
 

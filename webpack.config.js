@@ -1,46 +1,41 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const webpack = require('webpack');
-
 
 module.exports = {
-    context: path.join(__dirname, 'source'),
-    entry: [
-        'webpack-hot-middleware/client',
-        'babel-polyfill',
-        './index'
-    ],
-    output: {
-        path: path.join(__dirname, 'static'),
-        filename: 'index.js',
-        publicPath: '/static/'
-    },
-    plugins: [
-        new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin()
-    ],
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                enforce: 'pre',
-                loader: 'eslint-loader'
-            },
-            {
-                loaders: ['react-hot-loader', 'babel-loader'],
-                include: [
-                    path.resolve(__dirname, 'source'),
-                ],
-                test: /\.js$/,
-            },
-            {
-                test: /\.(scss|sass)$/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
-            },
-            {
-                test: /\.(scss|sass)$/,
-                use: ['postcss-loader']
-            }
-        ]
-    }
+  entry: './source/index.jsx',
+  devServer: {
+    inline: true,
+    port: 8000
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js'
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: '!!html-loader!index.html'
+    })
+  ],
+  devtool: 'sourcemap',
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.s?css$/,
+        exclude: /node_modules/,
+        loaders: [ 'style-loader', 'css-loader', 'sass-loader' ]
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader'
+      },
+    ]
+  },
+  resolve: {
+    extensions: [ '.js', '.jsx' ]
+  }
 };
