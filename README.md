@@ -293,6 +293,7 @@ class Gallery extends React.Component {
 ```apacheconfig
 git clone https://github.com/maxmarinich/react-alice-carousel
 cd react-alice-carousel
+git checkout react-16-example
 ```
 #### Run
 
