@@ -5,7 +5,7 @@ module.exports = {
   entry: './source/index.jsx',
   devServer: {
     inline: true,
-    port: 8000
+    port: 3000
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

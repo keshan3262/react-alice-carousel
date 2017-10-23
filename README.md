@@ -302,6 +302,8 @@ npm i
 npm start
 ```
 
+###### Open your browser on [_http://localhost:3000_](http://localhost:3000)
+
 #### License
 
 MIT
