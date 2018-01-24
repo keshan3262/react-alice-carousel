@@ -1,5 +1,5 @@
 import React from 'react';
-import AliceCarousel from './structure/react-alice-carousel';
+import AliceCarousel from 'react-alice-carousel';
 
 
 export class App extends React.Component {
@@ -29,10 +29,8 @@ export class App extends React.Component {
       <div className="app">
         <h1 className="h1">React Alice Carousel</h1>
         <AliceCarousel
-          duration={400}
           responsive={responsive}
-          onSlideChange={this.onSlideChange}
-          onSlideChanged={this.onSlideChanged}
+          fadeOutAnimation={true}
         >
           <div className="item"><h1>1</h1></div>
           <div className="item"><h1>2</h1></div>
