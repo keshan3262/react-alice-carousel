@@ -1,14 +1,15 @@
 # React Alice Carousel
-## React 16 Example
 
 ![demo gif](https://github.com/maxmarinich/react-alice-carousel/raw/master/source/i/react-alice-carousel.gif)
 
+![demo gif](https://github.com/maxmarinich/react-alice-carousel/raw/master/source/i/react-alice-carousel-demo.gif)
 
 React Alice Carousel is a React component for building content galleries, content rotators and any React carousels.
 
 ## Features of react-alice-carousel
 
 * Infinite loop
+* FadeOut animation
 * AutoPlay mode
 * Mobile friendly
 * Responsive design
@@ -17,6 +18,7 @@ React Alice Carousel is a React component for building content galleries, conten
 * Slide to index
 * RTL
 * Keyboard navigation
+* Touch and Drag support
 * Custom rendered slides
 * Custom animation duration
 * Multiple items in the slide
@@ -68,6 +70,17 @@ const Gallery = () => (
 
 * `responsive` : Object, default `{}` - Number of items in the slide
 
+  ```js
+    {
+        0: {
+            items: 1
+        },
+        1024: {
+            items: 3
+        }
+    }
+  ```
+
 * `buttonsDisabled` : Boolean, `false` - Disable buttons control
 
 * `dotsDisabled` : Boolean, `false` - Disable dots navigation
@@ -77,6 +90,12 @@ const Gallery = () => (
 * `slideToIndex` : Number, `0` - Sets the carousel at the specified position
 
 * `swipeDisabled` : Boolean, default `false` - Disable swipe handlers
+
+* `mouseDragEnabled` : Boolean, default `false` - Enable mouse drag animation
+
+* `infinite` : Boolean, default `true` - Disable infinite mode
+
+* `fadeOutAnimation` : Boolean, `false` - Enable fadeout animation. Fired when 1 item is in the slide
 
 * `keysControlDisabled` :  Boolean, default `false` - Disable keys controls (left, right, space)
 
@@ -89,6 +108,8 @@ const Gallery = () => (
 * `autoPlayDirection` : String, default `ltr` - To run auto play in the left direction specify `rtl` value
 
 * `autoPlayActionDisabled` : Boolean, default `false` - If this property is identified as `true` auto play animation will be stopped after clicking user on any gallery button
+
+* `stopAutoPlayOnHover` : Boolean, default `true` - If this property is identified as `false` auto play animation won't stopped on hover
 
 * `onSlideChange` : Function - Fired when the event object is changing / returns event object
 
@@ -139,6 +160,8 @@ class Gallery extends React.Component {
         duration={400}
         autoPlay={true}
         startIndex = {1}
+        fadeOutAnimation={true}
+        mouseDragEnabled={true}
         playButtonEnabled={true}
         responsive={responsive}
         autoPlayInterval={2000}
@@ -166,27 +189,21 @@ import React from 'react';
 import AliceCarousel from 'react-alice-carousel';
 
 class Gallery extends React.Component {
-  renderThumbs() {
-    const thumbs = [1,2,3,4,5];
-    return (
-      <ul>{thumbs.map((item, i) =>
-        <li key={i}
-          onClick={() => this.Carousel._slideToItem(i)}
-        >Thumb {item}</li>)}
-      </ul>
-    );
-  }
+  renderThumbs = () =>
+    <ul>
+      {
+        [1,2,3,4,5].map((item, i) =>
+          <li key={i} onClick={() => this.Carousel._onDotClick(i)}>Thumb {item}</li>)
+      }
+    </ul>;
+
   render() {
     return (
       <div>
         <h3>Navigation</h3>
-        {this.renderThumbs()}
-        <button onClick={() => this.Carousel._slidePrev()}>
-          Prev button
-        </button>
-        <button onClick={() => this.Carousel._slideNext()}>
-          Next button
-        </button>
+        { this.renderThumbs() }
+        <button onClick={() => this.Carousel._slidePrev()}>Prev button</button>
+        <button onClick={() => this.Carousel._slideNext()}>Next button</button>
         <h3>React Alice Carousel</h3>
         <AliceCarousel
           dotsDisabled={true}
@@ -211,79 +228,52 @@ import React from 'react';
 import AliceCarousel from 'react-alice-carousel';
 
 class Gallery extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      items: [1,2,3,4,5],
-      currentIndex: 0
-    };
-    this.onSlideChanged = this.onSlideChanged.bind(this);
-  }
+    constructor() {
+      super();
+      this.state = {
+        currentIndex: 0,
+        items: [1,2,3,4,5]
+      };
+    }
 
-  onSlideChanged(e) {
-    this.setState({
-      currentIndex: e.item
-    });
-  }
+    slideTo = (i) => this.setState({ currentIndex: i });
 
-  slideNext() {
-    this.setState({
-      currentIndex: this.state.currentIndex + 1
-    });
-  }
+    onSlideChanged = (e) => this.setState({ currentIndex: e.item });
 
-  slidePrev() {
-    this.setState({
-      currentIndex: this.state.currentIndex - 1
-    });
-  }
+    slideNext = () => this.setState({ currentIndex: this.state.currentIndex + 1 });
 
-  slideTo(i) {
-    this.setState({ currentIndex: i });
-  }
+    slidePrev = () => this.setState({ currentIndex: this.state.currentIndex - 1 });
 
-  renderThumbs() {
-    return (
+    renderThumbs = () =>
       <ul>{this.state.items.map((item, i) =>
-        <li key={i}
-          onClick={() => this.slideTo(i)}
-        >Thumb {item}</li>)}
-      </ul>
-    );
-  }
+        <li key={i} onClick={() => this.slideTo(i)}>Thumb {item}</li>)}
+      </ul>;
 
-  renderGallery() {
+    renderGallery() {
       const { currentIndex, items } = this.state;
+
       return (<AliceCarousel
         dotsDisabled={true}
         buttonsDisabled={true}
-        startIndex={currentIndex}
         slideToIndex={currentIndex}
-        onSlideChange={this.onSlideChange}
         onSlideChanged={this.onSlideChanged}
       >
-        {items.map((item, i) =>
-          <div key={i} className="yours-custom-class">
-            <h2>{item}</h2>
-          </div>)}
+        { items.map((item, i) => <div key={i} className="yours-custom-class"><h2>{ item }</h2></div>) }
       </AliceCarousel>);
-  }
-  render() {
-    return (
-      <div>
-        <h3>Navigation</h3>
-        {this.renderThumbs()}
-        <button onClick={() => this.slidePrev()}>
-          Prev button
-        </button>
-        <button onClick={() => this.slideNext()}>
-          Next button
-        </button>
-        <h3>React Alice Carousel</h3>
-        {this.renderGallery()}
-      </div>
-    );
-  }
+    }
+
+    render() {
+      return (
+        <div>
+          <h3>Navigation</h3>
+          { this.renderThumbs() }
+          <button onClick={() => this.slidePrev()}>Prev button</button>
+          <button onClick={() => this.slideNext()}>Next button</button>
+          <h3>React Alice Carousel</h3>
+          { this.renderGallery() }
+        </div>
+      );
+    }
 }
 ```
 
@@ -293,7 +283,6 @@ class Gallery extends React.Component {
 ```apacheconfig
 git clone https://github.com/maxmarinich/react-alice-carousel
 cd react-alice-carousel
-git checkout react-16-example
 ```
 #### Run
 
@@ -301,8 +290,6 @@ git checkout react-16-example
 npm i
 npm start
 ```
-
-###### Open your browser on [_http://localhost:3000_](http://localhost:3000)
 
 #### License
 

@@ -3,16 +3,6 @@ import AliceCarousel from 'react-alice-carousel';
 
 
 export class App extends React.Component {
-  onSlideChange(e) {
-    console.log('Item`s position during a change: ', e.item);
-    console.log('Slide`s position during a change: ', e.slide);
-  }
-
-  onSlideChanged(e) {
-    console.log('Item`s position after changes: ', e.item);
-    console.log('Slide`s position after changes: ', e.slide);
-  }
-
   render() {
     const responsive = {
       0: {
@@ -31,6 +21,7 @@ export class App extends React.Component {
         <AliceCarousel
           responsive={responsive}
           fadeOutAnimation={true}
+          mouseDragEnabled={true}
         >
           <div className="item"><h1>1</h1></div>
           <div className="item"><h1>2</h1></div>

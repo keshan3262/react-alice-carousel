@@ -1,6 +1,6 @@
 {
   "name": "react-alice-carousel-exapmle",
-  "version": "1.4.0",
+  "version": "0.0.1",
   "description": "React image gallery, react slideshow carousel, react content rotator",
   "main": "./source/js/structure/react-alice-carousel.js",
   "scripts": {
@@ -47,8 +47,11 @@
     "babel-eslint": "^8.0.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-runtime": "^6.26.0",
     "css-loader": "^0.28.7",
     "eslint": "^4.6.1",
     "eslint-config-airbnb": "^15.1.0",
@@ -68,6 +71,6 @@
     "prop-types": "^15.6.0",
     "react": "16.0.0",
     "react-dom": "16.0.0",
-    "react-swipeable": "^4.1.0"
+    "react-alice-carousel": "latest"
   }
 }

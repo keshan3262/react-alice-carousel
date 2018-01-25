@@ -2,10 +2,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  entry: './source/index.jsx',
+  entry: [
+    'babel-polyfill',
+    './source/index.jsx'
+  ],
   devServer: {
     inline: true,
-    port: 3000
+    port: 3030
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -25,8 +28,7 @@ module.exports = {
         loader: 'babel-loader'
       },
       {
-        test: /\.s?css$/,
-        exclude: /node_modules/,
+        test: /\.(scss|sass)$/,
         loaders: [ 'style-loader', 'css-loader', 'sass-loader' ]
       },
       {
