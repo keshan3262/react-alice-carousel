@@ -1,12 +1,13 @@
-# React Alice Carousel
+# React Keshan Carousel
 
-![demo gif](https://github.com/maxmarinich/react-alice-carousel/raw/master/source/i/react-alice-carousel.gif)
+![demo gif](https://github.com/keshan3262/react-keshan-carousel/raw/master/source/i/react-alice-carousel.gif)
 
-![demo gif](https://github.com/maxmarinich/react-alice-carousel/raw/master/source/i/react-alice-carousel-demo.gif)
+![demo gif](https://github.com/keshan3262/react-keshan-carousel/raw/master/source/i/react-alice-carousel-demo.gif)
 
-React Alice Carousel is a React component for building content galleries, content rotators and any React carousels.
+React Keshan Carousel is a React component for building content galleries, content rotators and any React carousels.
+Based on [react-alice-carousel](https://github.com/maxmarinich/react-alice-carousel).
 
-## Features of react-alice-carousel
+## Features of react-keshan-carousel
 
 * Infinite loop
 * FadeOut animation
@@ -27,39 +28,39 @@ React Alice Carousel is a React component for building content galleries, conten
 ## How to use
 
 ```apacheconfig
-npm install react-alice-carousel --save-dev
+npm install react-keshan-carousel --save-dev
 ```
 
 ### Style import
 
 ```
 # SCSS
-@import "react-alice-carousel/src/alice-carousel.scss";
+@import "react-keshan-carousel/src/alice-carousel.scss";
 ```
 ```
 # CSS
-@import "react-alice-carousel/lib/alice-carousel.css";
+@import "react-keshan-carousel/lib/alice-carousel.css";
 ```
 ```
 # Webpack
-import "react-alice-carousel/lib/alice-carousel.css";
+import "react-keshan-carousel/lib/alice-carousel.css";
 ```
 
 #### Quick start
 
 ```javascript
 import React from 'react';
-import AliceCarousel from 'react-alice-carousel';
+import KeshanCarousel from 'react-keshan-carousel';
 
 
 const Gallery = () => (
-  <AliceCarousel>
+  <KeshanCarousel>
     <img src="/img1" className="yours-custom-class" />
     <img src="/img2" className="yours-custom-class" />
     <img src="/img3" className="yours-custom-class" />
     <img src="/img4" className="yours-custom-class" />
     <img src="/img5" className="yours-custom-class" />
-  </AliceCarousel>
+  </KeshanCarousel>
 )
 ```
 
@@ -133,7 +134,7 @@ const Gallery = () => (
 
 ```javascript
 import React from 'react';
-import AliceCarousel from 'react-alice-carousel';
+import KeshanCarousel from 'react-keshan-carousel';
 
 
 class Gallery extends React.Component {  
@@ -165,7 +166,7 @@ class Gallery extends React.Component {
     const items = this.galleryItems();
 
     return (
-      <AliceCarousel
+      <KeshanCarousel
         items={items}
         duration={400}
         autoPlay={true}
@@ -190,7 +191,7 @@ class Gallery extends React.Component {
 
 ```javascript
 import React from 'react';
-import AliceCarousel from 'react-alice-carousel';
+import KeshanCarousel from 'react-keshan-carousel';
 
 
 class Gallery extends React.Component {  
@@ -213,9 +214,9 @@ class Gallery extends React.Component {
         <ul>{this.items.map(this.thumbItem)}</ul>
         <button onClick={() => this.Carousel._slidePrev()}>Prev button</button>
         <button onClick={() => this.Carousel._slideNext()}>Next button</button>
-        <h3>React Alice Carousel</h3>
+        <h3>React Keshan Carousel</h3>
         
-        <AliceCarousel
+        <KeshanCarousel
           items={items}
           dotsDisabled={true}
           buttonsDisabled={true}
@@ -230,7 +231,7 @@ class Gallery extends React.Component {
 
 ```javascript
 import React from 'react';
-import AliceCarousel from 'react-alice-carousel';
+import KeshanCarousel from 'react-keshan-carousel';
 
 
 class Gallery extends React.Component {
@@ -265,9 +266,9 @@ class Gallery extends React.Component {
         <ul>{this.items.map(this.thumbItem)}</ul>
         <button onClick={() => this.slidePrev()}>Prev button</button>
         <button onClick={() => this.slideNext()}>Next button</button>
-        <h3>React Alice Carousel</h3>
+        <h3>React Keshan Carousel</h3>
 
-        <AliceCarousel
+        <KeshanCarousel
           items={items}
           dotsDisabled={true}
           buttonsDisabled={true}
@@ -285,8 +286,8 @@ class Gallery extends React.Component {
 
 #### Clone
 ```apacheconfig
-git clone https://github.com/maxmarinich/react-alice-carousel
-cd react-alice-carousel
+git clone https://github.com/keshan3262/react-keshan-carousel
+cd react-keshan-carousel
 ```
 #### Run
 
