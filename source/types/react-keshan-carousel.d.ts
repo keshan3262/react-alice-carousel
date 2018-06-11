@@ -1,5 +1,5 @@
 // Type definitions for react-alice-carousel 1.10
-// Project: https://github.com/maxmarinich/react-alice-carousel
+// Project: https://github.com/keshan3262/react-keshan-carousel
 // Definitions by: endigo <https://github.com/endigo>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
