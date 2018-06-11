@@ -12,10 +12,10 @@ export interface EventObject {
 }
 
 export interface Props {
-    /**
-     * gallery items(children)
-     */
-    items?: Array;
+  /**
+   * gallery items(children)
+   */
+  items?: JSX.Element[];
 	/**
 	 * Fired when the event object is changing / returns event object
 	 */
