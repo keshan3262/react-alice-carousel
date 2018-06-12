@@ -30,6 +30,7 @@ module.exports = {
         loaders: ['babel-loader'],
         include: [
           path.resolve(__dirname, 'source'),
+          path.resolve(__dirname, 'lib')
         ],
         test: /\.js$/,
       },
