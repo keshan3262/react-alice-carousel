@@ -5,7 +5,7 @@
 ![demo gif](https://github.com/keshan3262/react-keshan-carousel/raw/master/source/i/react-alice-carousel-demo.gif)
 
 React Keshan Carousel is a React component for building content galleries, content rotators and any React carousels.
-Based on [react-alice-carousel](https://github.com/maxmarinich/react-alice-carousel).
+It is actually [react-alice-carousel](https://github.com/maxmarinich/react-alice-carousel) with several patches.
 
 ## Features of react-keshan-carousel
 
@@ -35,15 +35,15 @@ npm install react-keshan-carousel --save-dev
 
 ```
 # SCSS
-@import "react-keshan-carousel/src/alice-carousel.scss";
+@import "react-keshan-carousel/lib/keshan-carousel.scss";
 ```
 ```
 # CSS
-@import "react-keshan-carousel/lib/alice-carousel.css";
+@import "react-keshan-carousel/lib/keshan-carousel.css";
 ```
 ```
 # Webpack
-import "react-keshan-carousel/lib/alice-carousel.css";
+import "react-keshan-carousel/lib/keshan-carousel.css";
 ```
 
 #### Quick start
@@ -143,7 +143,7 @@ class Gallery extends React.Component {
     600: { items: 2 },
     1024: { items: 3 },
   };
-  
+
   onSlideChange(e) {
     console.log('Item`s position during a change: ', e.item);
     console.log('Slide`s position during a change: ', e.slide);
@@ -153,7 +153,7 @@ class Gallery extends React.Component {
     console.log('Item`s position after changes: ', e.item);
     console.log('Slide`s position after changes: ', e.slide);
   };
-  
+
   galleryItems() {
     return (
       [1, 2, 3, 4, 5].map((item, i) => (
@@ -161,7 +161,7 @@ class Gallery extends React.Component {
       ))
     )
   };
-  
+
   render() {
     const items = this.galleryItems();
 
@@ -196,18 +196,18 @@ import KeshanCarousel from 'react-keshan-carousel';
 
 class Gallery extends React.Component {  
   items = [1, 2, 3, 4, 5];
-  
+
   galleryItem = (item, i) => (
     <div key={`key-${i}`} className="yours-custom-class"><h2>{item}</h2></div>
   )
-  
+
   thumbItem = (item, i) => (
     <li key={i} onClick={() => this.Carousel._onDotClick(i)}>Thumb {item}</li>
   )
-                                   
+
   render() {
     const items = this.items.map(this.galleryItem)
-    
+
     return (
       <div>
         <h3>Navigation</h3>
@@ -215,7 +215,7 @@ class Gallery extends React.Component {
         <button onClick={() => this.Carousel._slidePrev()}>Prev button</button>
         <button onClick={() => this.Carousel._slideNext()}>Next button</button>
         <h3>React Keshan Carousel</h3>
-        
+
         <KeshanCarousel
           items={items}
           dotsDisabled={true}
@@ -249,11 +249,11 @@ class Gallery extends React.Component {
   slideNext = () => this.setState({ currentIndex: this.state.currentIndex + 1 });
 
   slidePrev = () => this.setState({ currentIndex: this.state.currentIndex - 1 });
-    
+
   thumbItem = (item, i) => (
     <li key={`key-${i}`} onClick={() => this.slideTo(i)}>Thumb {item}</li>
   );
-    
+
   galleryItem = (item, i) => (
     <div key={`key-${i}`} className="yours-custom-class"><h2>{item}</h2></div>
   );

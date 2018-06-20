@@ -1,6 +1,6 @@
 {
   "name": "react-keshan-carousel",
-  "version": "1.10.7",
+  "version": "1.10.8",
   "description": "React image gallery, react slideshow carousel, react content rotator. It is actually `react-alice-carousel` with several patches",
   "main": "./lib/react-keshan-carousel.js",
   "types": "./source/types/react-keshan-carousel.d.ts",
