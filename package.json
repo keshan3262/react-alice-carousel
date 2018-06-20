@@ -1,7 +1,7 @@
 {
   "name": "react-keshan-carousel",
   "version": "1.10.7",
-  "description": "React image gallery, react slideshow carousel, react content rotator, based on react-alice-carousel",
+  "description": "React image gallery, react slideshow carousel, react content rotator. It is actually `react-alice-carousel` with several patches",
   "main": "./lib/react-keshan-carousel.js",
   "types": "./source/types/react-keshan-carousel.d.ts",
   "scripts": {
@@ -47,6 +47,7 @@
     "prop-types": "^15.5.10",
     "react": ">=15.4",
     "react-dom": ">=15.4",
+    "react-hot-loader": "^4.0.0",
     "react-swipeable": "^4.0.0"
   },
   "devDependencies": {
@@ -69,7 +70,6 @@
     "node-sass": "^4.9.0",
     "postcss-loader": "^1.3.1",
     "pug": "^2.0.0-beta11",
-    "react-hot-loader": "^4.0.0",
     "sass-loader": "^6.0.1",
     "style-loader": "^0.13.1",
     "webpack": "^2.2.1",
