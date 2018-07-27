@@ -40,9 +40,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/maxmarinich/react-keshan-carousel/issues"
+    "url": "https://github.com/keshan3262/react-keshan-carousel/issues"
   },
-  "homepage": "https://github.com/maxmarinich/react-keshan-carousel#readme",
+  "homepage": "https://github.com/keshan3262/react-keshan-carousel#readme",
   "dependencies": {
     "prop-types": "^15.5.10",
     "react": ">=15.4",
